@@ -35,6 +35,15 @@ define('PREVENT_DIRECT_ACCESS', TRUE);
  * @license https://opensource.org/licenses/MIT MIT License
  */
 
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Methods: GET, POST, PUT, PATCH, DELETE, OPTIONS');
+header('Access-Control-Allow-Headers: Authorization, Content-Type, X-Requested-With, X-RateLimit-*');
+
+if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+    http_response_code(204);
+    exit;
+}
+
 /*
  *---------------------------------------------------------------
  * SYSTEM DIRECTORY NAME
